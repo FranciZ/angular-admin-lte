@@ -32,6 +32,19 @@ To create a new **directive** run:
 
 ```$ yo cg-angular:directive {directive-name}```
 
+#### States
+
+To add a new state to your application define one through the ```$stateProvider``` in the config method in app.js
+
+```javascript
+$stateProvider.state('my-state', {
+	
+	templateUrl	: 'partials/my-state/my-state.html',
+	controller	: 'MyStateCtrl'
+
+});
+```
+
 ## Building
 
 To build the project for distribution run:
@@ -39,6 +52,12 @@ To build the project for distribution run:
 ```$ grunt build```
 
 This will generate the final minified app in the */dist* folder
+
+
+
+
+
+
 
 
 

@@ -14,6 +14,10 @@
 
 ```$ npm install -g generator-cg-angular```
 
+```$ npm install```
+
+```$ bower install```
+
 ## Development
 
 To test while developing and get a preview run:

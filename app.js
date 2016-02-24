@@ -1,10 +1,13 @@
 angular.module('myApp', ['ui.bootstrap','ui.utils','ui.router','ngAnimate']);
 
-angular.module('myApp').config(function($stateProvider, $urlRouterProvider) {
+angular.module('myApp').config(function($locationProvider, $stateProvider, $urlRouterProvider) {
 
+    //$locationProvider.html5Mode(true);
+    
     $stateProvider.state('login', {
         url: '/login',
-        templateUrl: 'partial/login/login.html'
+        templateUrl: 'partial/login/login.html',
+        controller:'LoginCtrl'
     });
     $stateProvider.state('projects', {
         url: '/projects',
@@ -12,7 +15,8 @@ angular.module('myApp').config(function($stateProvider, $urlRouterProvider) {
     });
     $stateProvider.state('articles', {
         url: '/articles',
-        templateUrl: 'partial/articles/articles.html'
+        templateUrl: 'partial/articles/articles.html',
+        controller:'ArticlesCtrl'
     });
     $stateProvider.state('article', {
         url: '/article/:id',

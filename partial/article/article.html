@@ -1,16 +1,16 @@
 <div class="col-md-12" ng-controller="ArticleCtrl">
 
     <section class="content-header">
-        <div class="btn btn-success pull-right">Save</div>
+        <div class="btn btn-success pull-right" ng-click="onSaveClick()">Save</div>
         <h1>New article</h1>
     </section>
     
     <section class="content">
     
         <label>Title</label>
-        <input type="text" class="form-control">
+        <input type="text" class="form-control" ng-model="article.title">
         <label>Content</label>
-        <textarea class="form-control"></textarea>
+        <textarea class="form-control" ng-model="article.body"></textarea>
             
     </section>
 

@@ -38,38 +38,16 @@
   <script src="directive/check-box/check-box.js"></script>
   <script src="partial/articles/articles.js"></script>
   <script src="partial/article/article.js"></script>
+  <script src="partial/sidebar/sidebar.js"></script>
+  <script src="service/article.js"></script>
   <!-- Add New Component JS Above -->
 
     <div class="wrapper">
     
         <div class="main-header" ng-if="!isViewLogin"></div>
         
-        <div class="sidebar-wrapper" ng-if="!isViewLogin">
-             <div class="main-sidebar">
-                <div class="sidebar">
-                   
-                    <ul class="sidebar-menu">
-                        <div class="user-panel">
-                            <p class="text-primary">Hello Franci</p><br/>
-                            <a href="#">Log Out</a><br/>
-                            <a href="#">Profile</a>
-                        </div>
-                        <li class="header">Menu</li>
-                        <!-- BUTTON -->
-                        <li ui-sref="projects" ui-sref-active="active">
-                            <a href="#">
-                                <span>Projects</span>
-                            </a>
-                        </li><!-- END -->
-                        <!-- BUTTON -->
-                        <li ui-sref="articles" ui-sref-active="active">
-                            <a href="#">
-                                <span>Articles</span>
-                            </a>
-                        </li><!-- END -->
-                    </ul>
-                </div>
-            </div>
+        <div class="sidebar-wrapper" ng-include="'partial/sidebar/sidebar.html'" ng-if="!isViewLogin">
+             
         </div>
         
         <div ui-view class="content-wrapper" 

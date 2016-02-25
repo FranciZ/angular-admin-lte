@@ -9,21 +9,37 @@ angular.module('myApp').config(function($locationProvider, $stateProvider, $urlR
         templateUrl: 'partial/login/login.html',
         controller:'LoginCtrl'
     });
+    
     $stateProvider.state('projects', {
         url: '/projects',
-        templateUrl: 'partial/projects/projects.html'
+        templateUrl: 'partial/projects/projects.html',
+        controller:'ProjectsCtrl'
     });
+    
     $stateProvider.state('articles', {
         url: '/articles',
         templateUrl: 'partial/articles/articles.html',
-        controller:'ArticlesCtrl'
+        controller:'ArticlesCtrl',
+        resolve:{
+            articles: function(articleService, $timeout){
+                
+                return articleService.getArticles();
+                
+            }
+        }
     });
+    
     $stateProvider.state('article', {
-        url: '/article/:id',
+        url: '/article',
         templateUrl: 'partial/article/article.html'
     });
+    $stateProvider.state('project', {
+        url: '/project',
+        templateUrl: 'partial/project/project.html',
+        controller:'ProjectCtrl'
+    });
     /* Add New States Above */
-    $urlRouterProvider.otherwise('/login');
+    $urlRouterProvider.otherwise('/projects');
 
 });
 

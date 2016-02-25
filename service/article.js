@@ -5,27 +5,53 @@ angular.module('myApp').factory('articleService',function($http) {
             list:[],
             item:null
         },
-        getArticles:function(){
+        getArticles:function(cb){
             
-            $http.get('http://localhost:3000/articles')
-                .then(function(res){
+            var promise = $http.get('http://localhost:3000/api/articles');
+            
+            promise.then(function(res){
                 
-                console.log(res);
+                article.model.list = res.data;
+                
+                if(cb){
+                    cb(res);
+                }
                 
             });
             
-        },
-        saveArticle:function(articleData){
+            return promise;
             
-            $http.post('http://localhost:3000/article', articleData)
+        },
+        saveArticle:function(articleData, cb){
+            
+            $http.post('http://localhost:3000/api/article', articleData)
                 .then(function(res){
                
+                if(cb){
+                    cb();
+                }
                 console.log(res);
                 
             });
             
         },
-        deleteArticle:function(){
+        deleteArticle:function(id){
+            
+            $http.delete('http://localhost:3000/api/article/'+id)
+                .then(function(res){
+                
+                for(var i=0;i<article.model.list.length;i++){
+                    
+                    if(article.model.list[i]._id === id){
+                       article.model.list.splice(i, 1); 
+                    }
+                    
+                }
+                
+            });
+            
+        },
+        updateArticle:function(){
             
             
             

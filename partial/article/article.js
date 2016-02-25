@@ -1,13 +1,17 @@
-angular.module('myApp').controller('ArticleCtrl',function($scope, articleService){
+angular.module('myApp').controller('ArticleCtrl',function($scope, articleService, $state){
 
     $scope.article = {
-        title:'Default title',
-        body:'Default body'
+        title : 'Default title 2',
+        body  : 'Default body'
     };
     
     $scope.onSaveClick = function(){
         
-        articleService.saveArticle($scope.article);
+        articleService.saveArticle($scope.article, function(){
+            
+            $state.go('articles');
+            
+        });
         
     };
 

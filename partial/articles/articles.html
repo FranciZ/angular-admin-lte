@@ -13,26 +13,28 @@
                 <th>
                     Created on
                 </th>
-                <th>
-                    Published
-                </th>
+              
                 <th>
 
                 </th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>My first article</td>
-                <td>Yesterday</td>
-                <td>Yes</td>
+            <tr ng-repeat="article in articles">
+                <td>{{article.title}}</td>
+                <td>{{article.dateCreated}}</td>
+                
                 <td>
-                    <div class="btn btn-xs btn-warning">Unplish</div>
+                    <div class="btn btn-xs btn-danger" ng-click="deleteArticle(article._id)">Delete</div>
                 </td>
             </tr>
         </tbody>
     </table>
 </section>
+
+
+
+
 
 
 
